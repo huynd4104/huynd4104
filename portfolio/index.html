@@ -543,36 +543,57 @@
               </div>
             </div>
 
-            <!-- Visual Preview Banner -->
-            <div class="project-visual-strip">
-              <div class="preview-thumb" onclick="openDeepDiveModal('carebridge')">
-                <img src="assets/carebridge-architecture.png" alt="CareBridge System Architecture Diagram"
-                  loading="lazy">
-                <div class="preview-caption">System Architecture Diagram (Click to enlarge)</div>
+            <!-- Interactive Omnichannel Gallery Section -->
+            <div class="carebridge-gallery-section" id="carebridgeGallerySection">
+              <div class="gallery-header-row">
+                <div class="gallery-title-wrap">
+                  <div class="gallery-tag">Multi-Role Healthcare Ecosystem</div>
+                  <h4 class="gallery-heading">CareBridge Omnichannel UI &amp; Clinical Workflows</h4>
+                  <p class="gallery-sub">Interactive preview of production interfaces across Mother, Family Care Circles, Healthcare Experts (Doctor Mobile &amp; Clinical Web Portal), Baby Health Hub, and Administration.</p>
+                </div>
+                <div class="gallery-stats-pill">
+                  <span class="live-dot"></span>
+                  <span id="galleryCountLabel">18 Verified Mockups</span>
+                </div>
               </div>
-              <div class="preview-screens">
-                <div class="mobile-mockup" onclick="openDeepDiveModal('carebridge')">
-                  <img src="assets/carebridge-ai-symptom.png" alt="AI Symptom Intake UI Screen" loading="lazy">
-                  <span>AI Symptom Intake (RAG)</span>
-                </div>
-                <div class="mobile-mockup" onclick="openDeepDiveModal('carebridge')">
-                  <img src="assets/carebridge-community-moderation.png" alt="Community Feed & Moderation UI Screen"
-                    loading="lazy">
-                  <span>Community &amp; AI Moderation</span>
-                </div>
-                <div class="mobile-mockup" onclick="openDeepDiveModal('carebridge')">
-                  <img src="assets/carebridge-hospital-map.png" alt="Emergency Hospital Map UI Screen" loading="lazy">
-                  <span>Hospital Map &amp; Routing</span>
-                </div>
-                <div class="mobile-mockup" onclick="openDeepDiveModal('carebridge')">
-                  <img src="assets/carebridge-safety-monitoring.png" alt="Safety Monitoring UI Screen" loading="lazy">
-                  <span>IMU Safety Monitoring</span>
-                </div>
-                <div class="mobile-mockup" onclick="openDeepDiveModal('carebridge')">
-                  <img src="assets/carebridge-teleconsultation.png" alt="Realtime Consultation UI Screen"
-                    loading="lazy">
-                  <span>WebRTC Consultation</span>
-                </div>
+
+              <!-- Filter Tabs by User Role -->
+              <div class="gallery-role-tabs" id="galleryRoleTabs">
+                <button type="button" class="role-tab-btn active" data-role="all">
+                  <span>All Roles</span> <span class="tab-count">(18)</span>
+                </button>
+                <button type="button" class="role-tab-btn" data-role="mother">
+                  <span>👩 Mother</span> <span class="tab-count">(4)</span>
+                </button>
+                <button type="button" class="role-tab-btn" data-role="family">
+                  <span>👨‍👩‍👧 Family Circle</span> <span class="tab-count">(3)</span>
+                </button>
+                <button type="button" class="role-tab-btn" data-role="expert">
+                  <span>👨‍⚕️ Expert &amp; Doctor</span> <span class="tab-count">(4)</span>
+                </button>
+                <button type="button" class="role-tab-btn" data-role="baby">
+                  <span>👶 Baby Hub</span> <span class="tab-count">(2)</span>
+                </button>
+                <button type="button" class="role-tab-btn" data-role="community-admin">
+                  <span>🛡️ Admin &amp; Forum</span> <span class="tab-count">(3)</span>
+                </button>
+                <button type="button" class="role-tab-btn" data-role="emergency">
+                  <span>🗺️ Maps &amp; Arch</span> <span class="tab-count">(2)</span>
+                </button>
+              </div>
+
+              <!-- Gallery Cards Grid (Rendered dynamically) -->
+              <div class="gallery-cards-grid" id="carebridgeGalleryGrid" aria-live="polite">
+                <!-- Javascript will populate interactive cards -->
+              </div>
+
+              <!-- Expander Button Bar ('+' to view all screens) -->
+              <div class="gallery-expand-container">
+                <button type="button" class="btn btn-outline btn-expand-gallery" id="btnToggleCarebridgeGallery">
+                  <span class="expand-icon" id="galleryExpandIcon">+</span>
+                  <span class="expand-text" id="galleryExpandText">View All 18 Screens &amp; Multi-Role Flows</span>
+                </button>
+                <span class="gallery-hint">💡 Hover and click any card to zoom high-resolution mockup with navigation</span>
               </div>
             </div>
           </article>
@@ -685,11 +706,11 @@
         </div>
 
         <div class="arch-showcase-card glow-card">
-          <div class="arch-image-wrapper" onclick="openDeepDiveModal('carebridge')">
+          <div class="arch-image-wrapper" onclick="openImageLightboxById('cb-architecture')">
             <img src="assets/carebridge-architecture.png" alt="Complete CareBridge System Architecture"
               class="arch-full-image" loading="lazy">
             <div class="arch-image-overlay">
-              <span>🔍 Click to Inspect Full System Architecture Blueprint</span>
+              <span>🔍 Click to Zoom High-Resolution System Architecture Blueprint</span>
             </div>
           </div>
 
@@ -913,6 +934,56 @@
 
       <div class="dialog-body" id="modalBody">
         <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </dialog>
+
+  <!-- HIGH-RES IMAGE LIGHTBOX MODAL (<dialog>) -->
+  <dialog class="lightbox-dialog" id="imageLightboxModal" aria-label="CareBridge Screen Preview Lightbox">
+    <div class="lightbox-dialog-card">
+      <div class="lightbox-header">
+        <div class="lightbox-header-info">
+          <span class="lightbox-role-badge" id="lightboxBadge">MOTHER &amp; PREGNANCY</span>
+          <h3 class="lightbox-title" id="lightboxTitle">AI Clinical Symptom Intake (RAG Engine)</h3>
+        </div>
+        <div class="lightbox-header-actions">
+          <span class="lightbox-counter-pill" id="lightboxCounter">1 / 18</span>
+          <button type="button" class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Close lightbox">&times;</button>
+        </div>
+      </div>
+
+      <div class="lightbox-stage">
+        <button type="button" class="lightbox-nav-btn prev" id="lightboxPrevBtn" aria-label="Previous screen (Left Arrow)">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <div class="lightbox-img-wrapper" id="lightboxImgWrapper">
+          <img src="" alt="" id="lightboxMainImage" class="lightbox-main-img">
+        </div>
+
+        <button type="button" class="lightbox-nav-btn next" id="lightboxNextBtn" aria-label="Next screen (Right Arrow)">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <div class="lightbox-footer">
+        <div class="lightbox-desc-box">
+          <p class="lightbox-description" id="lightboxDesc">Conversational clinical triage powered by Google Gemini API &amp; pgvector hybrid search.</p>
+        </div>
+        <div class="lightbox-footer-meta">
+          <span class="lightbox-nav-hint">⌨️ <kbd>←</kbd> <kbd>→</kbd> Navigate &nbsp;|&nbsp; <kbd>Esc</kbd> Close</span>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="lightbox-raw-link" id="lightboxRawLink">
+            <span>Open High-Res</span>
+            <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor">
+              <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
+              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
   </dialog>

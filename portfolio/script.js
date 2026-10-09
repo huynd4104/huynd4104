@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectFiltering();
   initMetricsCounter();
   initModalListeners();
+  initCarebridgeGallery();
+  initImageLightbox();
 });
 
 /* ==========================================================================
@@ -409,3 +411,436 @@ function showToast(message) {
 }
 
 window.copyContact = copyContact;
+
+/* ==========================================================================
+   6. CareBridge Omnichannel Multi-Role Gallery & Image Lightbox Modal
+   ========================================================================== */
+
+const carebridgeScreens = [
+  // 1. Mother Role & Journey
+  {
+    id: 'cb-mother-home',
+    title: 'Mother Daily Care Dashboard',
+    role: 'Mother & Pregnancy',
+    category: 'mother',
+    badge: 'Mobile App • Mother Role',
+    src: 'assets/carebridge-mother-home.png',
+    desc: 'Personalized maternal health dashboard featuring daily gestational tracking, MOH milestones, medication reminders, and instant access to AI nurse assistance.'
+  },
+  {
+    id: 'cb-ai-symptom',
+    title: 'AI Clinical Symptom Intake (RAG)',
+    role: 'Mother & Pregnancy',
+    category: 'mother',
+    badge: 'AI & RAG Engine',
+    src: 'assets/carebridge-ai-symptom.png',
+    desc: 'Conversational clinical triage powered by Google Gemini API & pgvector hybrid search, evaluating maternal symptoms against WHO/MOH guidelines.'
+  },
+  {
+    id: 'cb-today-tasks',
+    title: 'Daily Care Tasks & Vital Schedule',
+    role: 'Mother & Pregnancy',
+    category: 'mother',
+    badge: 'Mobile App • Routine Care',
+    src: 'assets/carebridge-today-tasks.png',
+    desc: 'Automated daily clinical care checklist including blood pressure logging, fetal movement count, hydration goals, and doctor appointments.'
+  },
+  {
+    id: 'cb-safety-monitoring',
+    title: 'IMU Sensor Safety & Fall Detection',
+    role: 'Mother & Pregnancy',
+    category: 'mother',
+    badge: 'IoT & Accelerometer',
+    src: 'assets/carebridge-safety-monitoring.png',
+    desc: 'Real-time maternal fall detection leveraging mobile accelerometer and gyroscope data with 30-second emergency dispatch countdown timer.'
+  },
+
+  // 2. Family Cooperative Care Circle
+  {
+    id: 'cb-family-caregroup',
+    title: 'Family Care Group & Multi-Caregiver Sync',
+    role: 'Family Circle',
+    category: 'family',
+    badge: 'Mobile App • Family Role',
+    src: 'assets/carebridge-family-caregroup.png',
+    desc: 'Collaborative care network allowing husband, grandparents, and caregivers to monitor pregnancy progression, share duties, and receive status updates.'
+  },
+  {
+    id: 'cb-family-tasks',
+    title: 'Family Cooperative Care Tasks',
+    role: 'Family Circle',
+    category: 'family',
+    badge: 'Mobile App • Shared Duties',
+    src: 'assets/carebridge-family-tasks.png',
+    desc: 'Delegated household and caregiving checklist for family members, ensuring timely medicine purchase, nutrition prep, and clinic check-ins.'
+  },
+  {
+    id: 'cb-family-alerts',
+    title: 'Real-Time Family Emergency SOS Alerts',
+    role: 'Family Circle',
+    category: 'family',
+    badge: 'Real-time Alerts & Push',
+    src: 'assets/carebridge-family-alerts.png',
+    desc: 'Instant broadcast alerts dispatched to all registered family members when anomalous vitals, fall detection, or manual SOS triggers occur.'
+  },
+
+  // 3. Healthcare Expert & Doctor Experience
+  {
+    id: 'cb-expert-home',
+    title: 'Healthcare Expert Dashboard',
+    role: 'Doctor & Expert',
+    category: 'expert',
+    badge: 'Mobile App • Doctor Role',
+    src: 'assets/carebridge-expert-home.png',
+    desc: 'Mobile clinical command center for pediatricians and OB/GYN specialists showing active patients, upcoming consults, and pending triage reviews.'
+  },
+  {
+    id: 'cb-expert-consultation-requests',
+    title: 'Consultation Queue & Triage Intake',
+    role: 'Doctor & Expert',
+    category: 'expert',
+    badge: 'Mobile App • Patient Triage',
+    src: 'assets/carebridge-expert-consultation-requests.png',
+    desc: 'Incoming patient consultation request management with prioritized AI urgency scores, clinical notes review, and instant appointment confirmation.'
+  },
+  {
+    id: 'cb-teleconsultation',
+    title: 'High-Definition Teleconsultation (WebRTC)',
+    role: 'Doctor & Expert',
+    category: 'expert',
+    badge: 'ZegoCloud WebRTC Video',
+    src: 'assets/carebridge-teleconsultation.png',
+    desc: 'Secure end-to-end 1-on-1 video call between certified doctor and mother with screen sharing, automated session recording, and real-time messaging.'
+  },
+  {
+    id: 'cb-web-expert-portal',
+    title: 'Web Clinical Expert Portal',
+    role: 'Doctor & Expert',
+    category: 'expert',
+    badge: 'React 19 Web App',
+    src: 'assets/carebridge-web-expert-portal.png',
+    desc: 'Desktop web portal for clinical experts to examine comprehensive electronic medical records (EMR), prescribe guidance, and manage scheduled shifts.'
+  },
+
+  // 4. Baby & Child Health Hub
+  {
+    id: 'cb-baby-profiles',
+    title: 'Child & Infant Digital Health Records',
+    role: 'Baby & Child Hub',
+    category: 'baby',
+    badge: 'Mobile App • Pediatric Hub',
+    src: 'assets/carebridge-baby-profiles.png',
+    desc: 'Multi-child digital profile tracking immunization history, developmental milestones, pediatric checkups, and allergy registries.'
+  },
+  {
+    id: 'cb-baby-growth-chart',
+    title: 'WHO Pediatric Growth & Milestone Curves',
+    role: 'Baby & Child Hub',
+    category: 'baby',
+    badge: 'Analytics & Standards',
+    src: 'assets/carebridge-baby-growth-chart.png',
+    desc: 'Dynamic WHO growth chart plotting weight-for-age, height-for-age, and BMI percentiles with automated pediatric percentile anomaly alerts.'
+  },
+
+  // 5. Community & Admin Safety
+  {
+    id: 'cb-community-moderation',
+    title: 'Maternal Community & Doctor Q&A Forum',
+    role: 'Community & Admin',
+    category: 'community-admin',
+    badge: 'Mobile Community',
+    src: 'assets/carebridge-community-moderation.png',
+    desc: 'Peer support community with verified doctor badges, stage-based topic channels, and automated semantic sentiment & content guardrails.'
+  },
+  {
+    id: 'cb-web-moderation-queue',
+    title: 'AI Moderation Queue & Content Safety',
+    role: 'Community & Admin',
+    category: 'community-admin',
+    badge: 'React Web • Content Safety',
+    src: 'assets/carebridge-web-moderation-queue.png',
+    desc: 'Administrative moderation workspace with automated AI toxicity scoring, unapproved medical claims flagging, and one-click quarantine actions.'
+  },
+  {
+    id: 'cb-web-admin-dashboard',
+    title: 'Enterprise System Admin Dashboard',
+    role: 'Community & Admin',
+    category: 'community-admin',
+    badge: 'React Web • Operations Center',
+    src: 'assets/carebridge-web-admin-dashboard.png',
+    desc: 'Central operations console monitoring 88 use case endpoints, doctor licensing verification, platform traffic analytics, and database health.'
+  },
+
+  // 6. Emergency GIS & Architecture
+  {
+    id: 'cb-hospital-map',
+    title: 'Emergency GIS Hospital Locator & Routing',
+    role: 'Emergency & Maps',
+    category: 'emergency',
+    badge: 'TrackAsia GIS & GPS',
+    src: 'assets/carebridge-hospital-map.png',
+    desc: 'Proximity-based interactive map finding accredited maternal & pediatric hospitals within seconds, with turn-by-turn routing and direct hotline dial.'
+  },
+  {
+    id: 'cb-architecture',
+    title: 'Modular Monolith Architecture Blueprint',
+    role: 'System Architecture',
+    category: 'emergency',
+    badge: 'Spring Boot 3.5 & Docker',
+    src: 'assets/carebridge-architecture.png',
+    desc: 'Comprehensive system architecture diagram illustrating 9 domain modules, RS256 key rotation ring, RAG pipeline, WebRTC media, and PostgreSQL schema.'
+  }
+];
+
+let activeGalleryRole = 'all';
+let isGalleryExpanded = false;
+let currentLightboxIndex = 0;
+const INITIAL_VISIBLE_COUNT = 6;
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function initCarebridgeGallery() {
+  const roleTabBtns = document.querySelectorAll('#galleryRoleTabs .role-tab-btn');
+  const toggleBtn = document.getElementById('btnToggleCarebridgeGallery');
+
+  // Role filter tab click handlers
+  roleTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selectedRole = btn.getAttribute('data-role');
+      if (!selectedRole || selectedRole === activeGalleryRole) return;
+
+      roleTabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      activeGalleryRole = selectedRole;
+      renderCarebridgeGallery();
+    });
+  });
+
+  // Expander button click handler ('+' / '-')
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      isGalleryExpanded = !isGalleryExpanded;
+      renderCarebridgeGallery();
+    });
+  }
+
+  // Initial render
+  renderCarebridgeGallery();
+}
+
+function renderCarebridgeGallery() {
+  const gridContainer = document.getElementById('carebridgeGalleryGrid');
+  const toggleBtn = document.getElementById('btnToggleCarebridgeGallery');
+  const expandIcon = document.getElementById('galleryExpandIcon');
+  const expandText = document.getElementById('galleryExpandText');
+  const countLabel = document.getElementById('galleryCountLabel');
+
+  if (!gridContainer) return;
+
+  // Filter dataset
+  const filtered = activeGalleryRole === 'all'
+    ? carebridgeScreens
+    : carebridgeScreens.filter(screen => screen.category === activeGalleryRole);
+
+  if (countLabel) {
+    countLabel.textContent = `${filtered.length} ${filtered.length === 1 ? 'Mockup' : 'Mockups'}`;
+  }
+
+  // Determine slice
+  const shouldLimit = (activeGalleryRole === 'all') && !isGalleryExpanded;
+  const visibleItems = shouldLimit ? filtered.slice(0, INITIAL_VISIBLE_COUNT) : filtered;
+
+  // Render cards
+  gridContainer.innerHTML = visibleItems.map((screen) => {
+    const globalIndex = carebridgeScreens.findIndex(s => s.id === screen.id);
+    return `
+      <div class="gallery-card" onclick="openImageLightbox(${globalIndex})" role="button" tabindex="0" aria-label="View screenshot: ${escapeHtml(screen.title)}">
+        <div class="gallery-card-thumb">
+          <img src="${screen.src}" alt="${escapeHtml(screen.title)}" loading="lazy">
+          <div class="gallery-card-badge">${escapeHtml(screen.badge)}</div>
+          <div class="gallery-zoom-overlay">
+            <div class="zoom-icon-circle">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="11" cy="11" r="7"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </div>
+            <span>Click to Zoom</span>
+          </div>
+        </div>
+        <div class="gallery-card-meta">
+          <div class="gallery-card-role">${escapeHtml(screen.role)}</div>
+          <h5 class="gallery-card-title">${escapeHtml(screen.title)}</h5>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  // Add keyboard Enter / Space accessibility to cards
+  gridContainer.querySelectorAll('.gallery-card').forEach(card => {
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
+
+  // Update Expander Button UI
+  if (toggleBtn && expandIcon && expandText) {
+    if (activeGalleryRole !== 'all') {
+      // In a specific role category tab, all screens for that role are already shown
+      toggleBtn.style.display = 'none';
+    } else {
+      toggleBtn.style.display = 'inline-flex';
+      if (isGalleryExpanded) {
+        expandIcon.textContent = '−';
+        expandText.textContent = 'Show Fewer Screens (Collapse)';
+      } else {
+        expandIcon.textContent = '+';
+        expandText.textContent = `View All ${carebridgeScreens.length} Screens & Multi-Role Flows`;
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   High-Resolution Image Lightbox Modal Functionality
+   ========================================================================== */
+function initImageLightbox() {
+  const dialog = document.getElementById('imageLightboxModal');
+  const closeBtn = document.getElementById('lightboxCloseBtn');
+  const prevBtn = document.getElementById('lightboxPrevBtn');
+  const nextBtn = document.getElementById('lightboxNextBtn');
+
+  if (!dialog) return;
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeImageLightbox);
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navigateLightbox(-1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navigateLightbox(1);
+    });
+  }
+
+  // Close on backdrop click (click outside card)
+  dialog.addEventListener('click', (event) => {
+    const card = dialog.querySelector('.lightbox-dialog-card');
+    if (card && !card.contains(event.target)) {
+      closeImageLightbox();
+    }
+  });
+
+  // Handle escape & keyboard navigation
+  dialog.addEventListener('cancel', (e) => {
+    e.preventDefault();
+    closeImageLightbox();
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (dialog.open) {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        navigateLightbox(-1);
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        navigateLightbox(1);
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        closeImageLightbox();
+      }
+    }
+  });
+}
+
+function openImageLightbox(index) {
+  if (index < 0 || index >= carebridgeScreens.length) return;
+  currentLightboxIndex = index;
+  updateLightboxContent();
+
+  const dialog = document.getElementById('imageLightboxModal');
+  if (dialog && !dialog.open) {
+    dialog.showModal();
+  }
+}
+
+function openImageLightboxById(screenId) {
+  const index = carebridgeScreens.findIndex(s => s.id === screenId);
+  if (index !== -1) {
+    openImageLightbox(index);
+  } else {
+    openImageLightbox(0);
+  }
+}
+
+function updateLightboxContent() {
+  const screen = carebridgeScreens[currentLightboxIndex];
+  if (!screen) return;
+
+  const badgeEl = document.getElementById('lightboxBadge');
+  const titleEl = document.getElementById('lightboxTitle');
+  const counterEl = document.getElementById('lightboxCounter');
+  const imgEl = document.getElementById('lightboxMainImage');
+  const descEl = document.getElementById('lightboxDesc');
+  const rawLinkEl = document.getElementById('lightboxRawLink');
+
+  if (badgeEl) badgeEl.textContent = `${screen.role.toUpperCase()} • ${screen.badge}`;
+  if (titleEl) titleEl.textContent = screen.title;
+  if (counterEl) counterEl.textContent = `${currentLightboxIndex + 1} / ${carebridgeScreens.length}`;
+  if (descEl) descEl.textContent = screen.desc;
+  if (rawLinkEl) rawLinkEl.href = screen.src;
+
+  if (imgEl) {
+    imgEl.style.opacity = '0.35';
+    imgEl.src = screen.src;
+    imgEl.alt = screen.title;
+    imgEl.onload = () => {
+      imgEl.style.opacity = '1';
+    };
+  }
+}
+
+function navigateLightbox(step) {
+  const total = carebridgeScreens.length;
+  currentLightboxIndex = (currentLightboxIndex + step + total) % total;
+  updateLightboxContent();
+}
+
+function closeImageLightbox() {
+  const dialog = document.getElementById('imageLightboxModal');
+  if (dialog && dialog.open) {
+    dialog.style.opacity = '0';
+    dialog.style.transform = 'scale(0.96)';
+    setTimeout(() => {
+      dialog.close();
+      dialog.style.opacity = '';
+      dialog.style.transform = '';
+    }, 180);
+  }
+}
+
+// Expose globals for onclick handlers
+window.openImageLightbox = openImageLightbox;
+window.openImageLightboxById = openImageLightboxById;
+window.closeImageLightbox = closeImageLightbox;
+window.navigateLightbox = navigateLightbox;
