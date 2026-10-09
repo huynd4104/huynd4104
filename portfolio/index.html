@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nguyen Danh Huy — Software Engineer | Backend • AI • Mobile • Full-Stack</title>
+  <meta name="description"
+    content="Portfolio of Nguyen Danh Huy — Software Engineer specializing in Java Spring Boot, AI RAG Architecture, Flutter Mobile, React, and Scalable Backend Systems.">
+  <meta name="keywords"
+    content="Nguyen Danh Huy, Software Engineer, Java, Spring Boot, RAG, AI Infrastructure, Flutter, React, Fullstack, CareBridge, HeyKid">
+  <meta name="author" content="Nguyen Danh Huy">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nguyen Danh Huy — Software Engineer Portfolio">
+  <meta property="og:description"
+    content="Java Spring Boot • AI RAG Architecture • Flutter & React • Cloud & Distributed Systems">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Ambient background lighting effects -->
+  <div class="ambient-glow glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow glow-2" aria-hidden="true"></div>
+  <div class="ambient-glow glow-3" aria-hidden="true"></div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header" id="navbar">
+    <div class="container header-container">
+      <a href="#hero" class="brand-logo" aria-label="Nguyen Danh Huy Homepage">
+        <span class="logo-symbol">&lt;/&gt;</span>
+        <span class="logo-name">Huy<strong>.dev</strong></span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main Navigation">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#architecture" class="nav-link">Architecture</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://github.com/huynd4104" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm"
+          aria-label="GitHub Profile">
+          <svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          <span>GitHub</span>
+        </a>
+        <a href="#contact" class="btn btn-primary btn-sm">Let's Connect</a>
+        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="status-dot"></span>
+            <span>Open to Engineering Opportunities • Backend, AI, Mobile &amp; Full-Stack</span>
+          </div>
+
+          <h1 class="hero-title">
+            Hi, I'm <span class="text-gradient">Nguyen Danh Huy</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            <span class="code-font">&gt;</span> <strong>Software Engineer</strong> | <strong>Backend</strong> •
+            <strong>AI Systems</strong> • <strong>Mobile &amp; Full-Stack</strong>
+          </p>
+
+          <p class="hero-desc">
+            Bridging robust <strong>Java Spring Boot</strong> Modular Monoliths with production-grade <strong>RAG AI
+              Architectures</strong>, <strong>Vector Databases</strong>, and scalable cross-platform client ecosystems
+            (<strong>Flutter &amp; React</strong>).
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary">
+              <span>Explore Projects</span>
+              <svg class="icon-arrow" viewBox="0 0 20 20" width="16" height="16" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd" />
+              </svg>
+            </a>
+            <button class="btn btn-secondary" onclick="openDeepDiveModal('carebridge')">
+              <svg class="icon" viewBox="0 0 20 20" width="16" height="16" fill="currentColor">
+                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                <path fill-rule="evenodd"
+                  d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                  clip-rule="evenodd" />
+              </svg>
+              <span>CareBridge Deep Dive</span>
+            </button>
+            <button class="btn btn-ghost" onclick="copyContact('email')">
+              <svg class="icon" viewBox="0 0 20 20" width="16" height="16" fill="currentColor">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+              <span id="copyEmailText">Copy Email</span>
+            </button>
+          </div>
+
+          <!-- Quick contact pills -->
+          <div class="hero-contact-bar">
+            <span class="contact-pill">
+              <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                  clip-rule="evenodd" />
+              </svg>
+              Hanoi, Vietnam
+            </span>
+            <span class="contact-pill">
+              <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor">
+                <path
+                  d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 4V3z" />
+              </svg>
+              0866 046 581
+            </span>
+            <span class="contact-pill">
+              <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor">
+                <path
+                  d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a10.99 10.99 0 00-.25 2.373c0 4.153 2.923 8.358 7.378 9.542a1 1 0 00.544 0C17.378 18.782 20.3 14.577 20.3 10.424c0-.816-.09-1.613-.25-2.373l2.644-1.131a1 1 0 000-1.84l-7-3z" />
+              </svg>
+              FPT University (Software Engineering)
+            </span>
+          </div>
+        </div>
+
+        <!-- Terminal Widget on Right -->
+        <div class="hero-visual">
+          <div class="terminal-card">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="terminal-title">huy@devbox: ~/profile.sh</div>
+            </div>
+            <div class="terminal-body code-font">
+              <div class="term-line"><span class="prompt">$</span> <span class="cmd">cat developer_profile.json</span>
+              </div>
+              <div class="term-output">
+                <pre>{
+  <span class="json-key">"name"</span>: <span class="json-val">"Nguyen Danh Huy"</span>,
+  <span class="json-key">"role"</span>: <span class="json-val">"Software Engineer"</span>,
+  <span class="json-key">"focus"</span>: <span class="json-val">"Backend, AI Systems & Cross-Platform Development"</span>,
+  <span class="json-key">"education"</span>: {
+    <span class="json-key">"school"</span>: <span class="json-val">"FPT University"</span>,
+    <span class="json-key">"major"</span>: <span class="json-val">"Software Engineering"</span>,
+    <span class="json-key">"degree"</span>: <span class="json-val">"Bachelor of Science"</span>
+  },
+  <span class="json-key">"core_stack"</span>: [
+    <span class="json-val">"Java 21"</span>, <span class="json-val">"Spring Boot 3.5"</span>, 
+    <span class="json-val">"PostgreSQL + pgvector"</span>, 
+    <span class="json-val">"Docker"</span>, <span class="json-val">"Flutter"</span>, <span class="json-val">"React"</span>
+  ],
+  <span class="json-key">"production_metrics"</span>: {
+    <span class="json-key">"use_cases_delivered"</span>: <span class="json-num">88</span>,
+    <span class="json-key">"rag_triage_accuracy"</span>: <span class="json-val">"High / MOH Compliant"</span>,
+    <span class="json-key">"fall_detection_latency"</span>: <span class="json-val">"Real-time (IMU)"</span>
+  }
+}</pre>
+              </div>
+              <div class="term-line"><span class="prompt">$</span> <span class="cmd">systemctl status
+                  engineering_mindset</span></div>
+              <div class="term-status"><span class="status-tag active">ACTIVE (RUNNING)</span> — Enterprise-grade
+                quality, zero shortcuts.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEY IMPACT METRICS STRIP -->
+    <section class="metrics-strip">
+      <div class="container metrics-grid">
+        <div class="metric-card">
+          <div class="metric-number text-gradient" data-target="88" data-suffix="+">88+</div>
+          <div class="metric-label">Functional Use Cases</div>
+          <div class="metric-sub">Across 9 distinct domains in CareBridge</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number text-gradient" data-target="2">2</div>
+          <div class="metric-label">Full-Stack Platforms</div>
+          <div class="metric-sub">CareBridge (MECHP) &amp; HeyKid Monorepo</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number text-gradient" data-target="9">9</div>
+          <div class="metric-label">Core Business Domains</div>
+          <div class="metric-sub">Access, AI, Teleconsultation, IoT Safety...</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number text-gradient">100%</div>
+          <div class="metric-label">Production SDLC Gate</div>
+          <div class="metric-sub">RS256 JWT, RAG, WebRTC, Sensors</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT & ENGINEERING PHILOSOPHY SECTION -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Engineering Focus</span>
+          <h2 class="section-title">Core Competencies &amp; Engineering Philosophy</h2>
+          <p class="section-desc">Building resilient backend foundations, intelligent AI retrieval pipelines, and
+            seamless cross-platform client ecosystems.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card glow-card">
+            <div class="about-icon-badge">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+              </svg>
+            </div>
+            <h3>Backend, Architecture &amp; Reliability</h3>
+            <div class="role-badge">Systems &amp; Architecture</div>
+            <p>
+              Dedicated to building enterprise-grade, maintainable software systems with a strong foundation in
+              <strong>Java Spring Boot</strong>, <strong>PostgreSQL</strong>, <strong>Modular Monoliths</strong>, and
+              <strong>Docker CI/CD</strong>:
+            </p>
+            <ul class="bullet-list">
+              <li>Enforcing strict architectural boundaries, clean code conventions, and automated test-driven flows.
+              </li>
+              <li>Implementing robust transaction handling, asymmetric security (RS256 JWT rings), and schema migration
+                versioning.</li>
+              <li>Designing scalable REST APIs and high-efficiency cloud media pipelines (S3 Presigned URLs to
+                Cloudflare R2).</li>
+            </ul>
+          </div>
+
+          <div class="about-card glow-card">
+            <div class="about-icon-badge">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg>
+            </div>
+            <h3>AI Integration &amp; Cross-Platform Clients</h3>
+            <div class="role-badge">AI, Mobile &amp; Web</div>
+            <p>
+              Bridging intelligent AI capabilities with production user experiences across mobile and web platforms:
+            </p>
+            <ul class="bullet-list">
+              <li>End-to-end <strong>RAG AI Pipelines</strong> integrating Google Gemini, n-gram hybrid search, and
+                pgvector embeddings.</li>
+              <li>Automated <strong>AI Content Moderation</strong>, semantic analysis, and on-device STT/TTS interaction
+                flows.</li>
+              <li>Cross-platform mobile applications in <strong>Flutter</strong> (IMU sensors, real-time WebRTC, GIS
+                Maps) paired with reactive <strong>React</strong> administrative portals.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL ARSENAL SECTION -->
+    <section class="section bg-alt" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Technical Arsenal</span>
+          <h2 class="section-title">Skills &amp; Architecture Capabilities</h2>
+          <p class="section-desc">Practical experience honed through enterprise-grade graduation projects, internships,
+            and production-like implementations.</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Backend -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">☕</div>
+              <div>
+                <h3>Backend &amp; Microservices</h3>
+                <span class="skill-cat-subtitle">Core Strength</span>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="tech-tag highlight">Java 21</span>
+              <span class="tech-tag highlight">Spring Boot 3.5</span>
+              <span class="tech-tag">RESTful APIs</span>
+              <span class="tech-tag highlight">Spring Security</span>
+              <span class="tech-tag">RS256 JWT Ring</span>
+              <span class="tech-tag">Modular Monolith</span>
+              <span class="tech-tag">Flyway Migrations</span>
+              <span class="tech-tag">Servlets &amp; JSP</span>
+              <span class="tech-tag">Apache Tika</span>
+            </div>
+            <p class="skill-cat-note">
+              Architected 88 use cases in a Modular Monolith with clean boundary separation, asymmetric JWT key
+              rotation, and automated schema migrations.
+            </p>
+          </div>
+
+          <!-- AI & RAG -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">🧠</div>
+              <div>
+                <h3>AI &amp; RAG Architecture</h3>
+                <span class="skill-cat-subtitle">High Growth Domain</span>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="tech-tag highlight">RAG Pipeline</span>
+              <span class="tech-tag highlight">Google Gemini API</span>
+              <span class="tech-tag highlight">pgvector</span>
+              <span class="tech-tag">n-gram Hybrid Search</span>
+              <span class="tech-tag">LangChain</span>
+              <span class="tech-tag">Python FastAPI</span>
+              <span class="tech-tag">Semantic Moderation</span>
+              <span class="tech-tag">On-Device STT/TTS</span>
+              <span class="tech-tag">Google MediaPipe</span>
+            </div>
+            <p class="skill-cat-note">
+              Integrated hybrid vector + lexical retrieval on clinical guidelines for medical triage, AI safety content
+              moderation, and speech interaction flows.
+            </p>
+          </div>
+
+          <!-- Frontend & Mobile -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">📱</div>
+              <div>
+                <h3>Frontend &amp; Mobile Clients</h3>
+                <span class="skill-cat-subtitle">Omnichannel Experience</span>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="tech-tag highlight">Flutter (Dart)</span>
+              <span class="tech-tag highlight">React 19 (TypeScript)</span>
+              <span class="tech-tag">Vite</span>
+              <span class="tech-tag">TanStack Query</span>
+              <span class="tech-tag">GoRouter</span>
+              <span class="tech-tag">Sensors Plus (IMU)</span>
+              <span class="tech-tag">ZegoCloud WebRTC</span>
+              <span class="tech-tag">HTML5 / CSS3</span>
+            </div>
+            <p class="skill-cat-note">
+              Built cross-platform Flutter mobile applications with hardware sensor integration
+              (accelerometer/gyroscope) and responsive React admin web portals.
+            </p>
+          </div>
+
+          <!-- Cloud & DevOps -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">☁️</div>
+              <div>
+                <h3>Databases, Cloud &amp; DevOps</h3>
+                <span class="skill-cat-subtitle">Reliability &amp; Deployment</span>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="tech-tag highlight">PostgreSQL 16+</span>
+              <span class="tech-tag highlight">Supabase</span>
+              <span class="tech-tag">SQL Server</span>
+              <span class="tech-tag highlight">Cloudflare R2</span>
+              <span class="tech-tag">AWS S3 SDK</span>
+              <span class="tech-tag highlight">Docker &amp; Compose</span>
+              <span class="tech-tag">GitLab CI/CD</span>
+              <span class="tech-tag">GitHub Actions</span>
+              <span class="tech-tag">Git Flow</span>
+            </div>
+            <p class="skill-cat-note">
+              Configured zero-bandwidth direct uploads using S3 presigned URLs, containerized microservices via Docker
+              Compose, and automated CI/CD pipelines.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS SHOWCASE -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Featured Work</span>
+          <h2 class="section-title">Production-Grade Engineering Projects</h2>
+          <p class="section-desc">Deep technical implementations with real architectures, code repositories, and
+            measurable outcomes.</p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="project-filter-bar">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="flagship">Flagship (CareBridge)</button>
+          <button class="filter-btn" data-filter="ai-backend">AI &amp; Backend</button>
+          <button class="filter-btn" data-filter="mobile-web">Full-Stack &amp; Mobile</button>
+        </div>
+
+        <div class="projects-container">
+          <!-- FLAGSHIP PROJECT: CAREBRIDGE -->
+          <article class="project-card flagship glow-card" data-category="flagship ai-backend mobile-web">
+            <div class="project-ribbon">Graduation Project • Flagship Platform</div>
+            <div class="project-header">
+              <div class="project-titles">
+                <span class="project-date">05/2026 – 09/2026</span>
+                <h3 class="project-title">CareBridge — Maternal &amp; Early Childhood Healthcare Platform (MECHP)</h3>
+                <p class="project-role-tag">
+                  <strong>Role:</strong> Fullstack &amp; AI Integration Developer | <strong>Grade:</strong> Capstone
+                  Project (FPT University)
+                </p>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/huynd4104/Care-Bridge" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-outline btn-sm">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                  <span>GitHub Repo</span>
+                </a>
+                <button class="btn btn-primary btn-sm" onclick="openDeepDiveModal('carebridge')">
+                  <span>Architecture Deep Dive</span>
+                  <svg viewBox="0 0 20 20" width="16" height="16" fill="currentColor">
+                    <path fill-rule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <p class="project-overview">
+              An enterprise-grade, omnichannel healthcare platform designed in strict accordance with <strong>WHO and
+                Vietnam Ministry of Health (MOH) guidelines</strong>. Bridges families, certified medical experts, and
+              an automated <strong>AI clinical triage engine</strong> through 88 production use cases across 9 domains.
+            </p>
+
+            <div class="tech-stack-row">
+              <span class="tech-tag">Java 21</span>
+              <span class="tech-tag">Spring Boot 3.5</span>
+              <span class="tech-tag">Spring Security + RS256</span>
+              <span class="tech-tag">Python FastAPI</span>
+              <span class="tech-tag">Gemini API RAG</span>
+              <span class="tech-tag">pgvector</span>
+              <span class="tech-tag">Flutter (Dart)</span>
+              <span class="tech-tag">React (TypeScript)</span>
+              <span class="tech-tag">TrackAsia Maps API</span>
+              <span class="tech-tag">GPS Geolocation</span>
+              <span class="tech-tag">WebRTC</span>
+              <span class="tech-tag">Cloudflare R2</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+
+            <div class="project-highlights-grid">
+              <div class="highlight-box">
+                <div class="highlight-title">
+                  <span class="highlight-badge">RAG &amp; AI Triage</span>
+                  <h4>Multi-channel Chat &amp; AI Nurse</h4>
+                </div>
+                <p>
+                  Engineered 24/7 AI Nurse assistant powered by RAG with <strong>Google Gemini API</strong>,
+                  <strong>n-gram hybrid search</strong>, and <strong>pgvector</strong>. Analyzes natural language
+                  symptoms against verified clinical knowledge bases, screens vitals, and automatically triggers GPS
+                  emergency alerts.
+                </p>
+              </div>
+
+              <div class="highlight-box">
+                <div class="highlight-title">
+                  <span class="highlight-badge">GIS &amp; Emergency Routing</span>
+                  <h4>Emergency SOS &amp; Nearest Hospital Locator</h4>
+                </div>
+                <p>
+                  Integrated <strong>TrackAsia Maps API</strong> and device GPS geolocation for spatial proximity
+                  queries locating accredited maternal &amp; pediatric facilities. Enables 1-tap SOS emergency triggers,
+                  turn-by-turn routing navigation, and real-time coordinate broadcasts to family care circles.
+                </p>
+              </div>
+
+              <div class="highlight-box">
+                <div class="highlight-title">
+                  <span class="highlight-badge">IoT &amp; Mobile Sensors</span>
+                  <h4>IMU Fall Detection &amp; Safety Monitoring</h4>
+                </div>
+                <p>
+                  Built a real-time maternal fall detection module leveraging mobile accelerometer and gyroscope sensor
+                  data with dynamic threshold filtering and an automated 30-second emergency dispatch countdown to
+                  family care groups.
+                </p>
+              </div>
+
+              <div class="highlight-box">
+                <div class="highlight-title">
+                  <span class="highlight-badge">WebRTC &amp; Cloud Media</span>
+                  <h4>Medical Teleconsultation &amp; Lifecycle</h4>
+                </div>
+                <p>
+                  Integrated high-definition 1-on-1 audio/video teleconsultations via WebRTC (ZegoCloud), with automated
+                  background session recording, lifecycle events, and cloud storage streaming via Cloudflare R2 and
+                  Cloudinary.
+                </p>
+              </div>
+
+              <div class="highlight-box">
+                <div class="highlight-title">
+                  <span class="highlight-badge">NLP &amp; Semantic Safety</span>
+                  <h4>Community &amp; AI Content Moderation</h4>
+                </div>
+                <p>
+                  Architected a peer &amp; verified-expert Q&amp;A forum with stage-based filtering; integrated
+                  <strong>AI automated moderation</strong> pipelines using semantic NLP analysis to detect and filter
+                  harmful content, harassment, and unvetted medical misinformation.
+                </p>
+              </div>
+
+              <div class="highlight-box">
+                <div class="highlight-title">
+                  <span class="highlight-badge">Modular Architecture</span>
+                  <h4>Enterprise Monolith &amp; RS256 Security</h4>
+                </div>
+                <p>
+                  Enforced strict Modular Monolith domain boundaries with RS256 asymmetric JWT signing (SPKI public key
+                  rotation ring), Flyway schema migration pipelines, and full audit logging across 88 reachable use
+                  cases.
+                </p>
+              </div>
+            </div>
+
+            <!-- Visual Preview Banner -->
+            <div class="project-visual-strip">
+              <div class="preview-thumb" onclick="openDeepDiveModal('carebridge')">
+                <img src="assets/carebridge-architecture.png" alt="CareBridge System Architecture Diagram"
+                  loading="lazy">
+                <div class="preview-caption">System Architecture Diagram (Click to enlarge)</div>
+              </div>
+              <div class="preview-screens">
+                <div class="mobile-mockup" onclick="openDeepDiveModal('carebridge')">
+                  <img src="assets/carebridge-ai-symptom.png" alt="AI Symptom Intake UI Screen" loading="lazy">
+                  <span>AI Symptom Intake (RAG)</span>
+                </div>
+                <div class="mobile-mockup" onclick="openDeepDiveModal('carebridge')">
+                  <img src="assets/carebridge-community-moderation.png" alt="Community Feed & Moderation UI Screen"
+                    loading="lazy">
+                  <span>Community &amp; AI Moderation</span>
+                </div>
+                <div class="mobile-mockup" onclick="openDeepDiveModal('carebridge')">
+                  <img src="assets/carebridge-hospital-map.png" alt="Emergency Hospital Map UI Screen" loading="lazy">
+                  <span>Hospital Map &amp; Routing</span>
+                </div>
+                <div class="mobile-mockup" onclick="openDeepDiveModal('carebridge')">
+                  <img src="assets/carebridge-safety-monitoring.png" alt="Safety Monitoring UI Screen" loading="lazy">
+                  <span>IMU Safety Monitoring</span>
+                </div>
+                <div class="mobile-mockup" onclick="openDeepDiveModal('carebridge')">
+                  <img src="assets/carebridge-teleconsultation.png" alt="Realtime Consultation UI Screen"
+                    loading="lazy">
+                  <span>WebRTC Consultation</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- SECOND PROJECT: HEYKID -->
+          <article class="project-card glow-card" data-category="ai-backend mobile-web">
+            <div class="project-ribbon secondary">Personal Project</div>
+            <div class="project-header">
+              <div class="project-titles">
+                <span class="project-date">05/2026 – 06/2026</span>
+                <h3 class="project-title">HeyKid — Language Intervention &amp; Learning Platform for Children</h3>
+                <p class="project-role-tag">
+                  <strong>Role:</strong> Fullstack Developer | <strong>Repository:</strong>
+                  github.com/huynd4104/project-ha
+                </p>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/huynd4104/project-ha" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-outline btn-sm">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                  <span>GitHub Repo</span>
+                </a>
+                <button class="btn btn-secondary btn-sm" onclick="openDeepDiveModal('heykid')">
+                  <span>View Breakdown</span>
+                </button>
+              </div>
+            </div>
+
+            <p class="project-overview">
+              A specialized cross-platform web and mobile ecosystem designed to support speech language intervention and
+              cognitive developmental paths for children with speech delays and special needs.
+            </p>
+
+            <div class="tech-stack-row">
+              <span class="tech-tag">Java 17</span>
+              <span class="tech-tag">Spring Boot 3.5</span>
+              <span class="tech-tag">Flutter (Dart)</span>
+              <span class="tech-tag">React (TypeScript)</span>
+              <span class="tech-tag">PostgreSQL (Supabase)</span>
+              <span class="tech-tag">Cloudflare R2 (S3 SDK)</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">GitHub Actions</span>
+              <span class="tech-tag">On-Device STT/TTS</span>
+            </div>
+
+            <div class="project-highlights-grid">
+              <div class="highlight-box">
+                <div class="highlight-title">
+                  <span class="highlight-badge">Monorepo Architecture</span>
+                  <h4>3-Module Monolith &amp; Security</h4>
+                </div>
+                <p>
+                  Constructed a modular 3-module monorepo with Spring Boot 3.5 REST endpoints, JWT access/refresh token
+                  rotation, and strict RBAC authorization protecting multi-tenant therapy center records.
+                </p>
+              </div>
+
+              <div class="highlight-box">
+                <div class="highlight-title">
+                  <span class="highlight-badge">Interactive Speech AI</span>
+                  <h4>Conversational Mascot &amp; Speech Practice</h4>
+                </div>
+                <p>
+                  Engineered an empathetic two-way vocal interaction pipeline pairing children with custom mascot
+                  companions utilizing on-device STT/TTS for low-latency, psychologically secure speech therapy
+                  sessions.
+                </p>
+              </div>
+
+              <div class="highlight-box">
+                <div class="highlight-title">
+                  <span class="highlight-badge">Curriculum Builder</span>
+                  <h4>Admin Therapy Portal</h4>
+                </div>
+                <p>
+                  Built a responsive React web portal featuring a hierarchical Curriculum Builder: <em>Programs &rarr;
+                    Learning Paths &rarr; Path Items &rarr; Lessons &rarr; Interactive Activities</em> (Flashcard, Math,
+                  Speech drills).
+                </p>
+              </div>
+
+              <div class="highlight-box">
+                <div class="highlight-title">
+                  <span class="highlight-badge">Optimization &amp; CI/CD</span>
+                  <h4>Presigned Media URLs &amp; Pipeline</h4>
+                </div>
+                <p>
+                  Eliminated backend bandwidth consumption by orchestrating AWS S3 SDK Presigned Upload URLs directly to
+                  Cloudflare R2. Deployed backend on Render and automated Flutter Web CI/CD to Vercel via GitHub
+                  Actions.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURE DEEP-DIVE SECTION -->
+    <section class="section bg-alt" id="architecture">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">System Design</span>
+          <h2 class="section-title">CareBridge System Architecture Blueprint</h2>
+          <p class="section-desc">Production-ready design balancing enterprise boundaries, edge ingress, AI vector
+            pipelines, and real-time clients.</p>
+        </div>
+
+        <div class="arch-showcase-card glow-card">
+          <div class="arch-image-wrapper" onclick="openDeepDiveModal('carebridge')">
+            <img src="assets/carebridge-architecture.png" alt="Complete CareBridge System Architecture"
+              class="arch-full-image" loading="lazy">
+            <div class="arch-image-overlay">
+              <span>🔍 Click to Inspect Full System Architecture Blueprint</span>
+            </div>
+          </div>
+
+          <div class="arch-layer-breakdown">
+            <div class="arch-layer-item">
+              <div class="layer-number">01</div>
+              <div class="layer-content">
+                <h4>Edge &amp; Ingress Layer</h4>
+                <p>Cloudflare Tunnel / Nginx edge gateway handling SSL termination, reverse proxying, and secure API
+                  routing to internal backend instances without exposing open server ports.</p>
+              </div>
+            </div>
+
+            <div class="arch-layer-item">
+              <div class="layer-number">02</div>
+              <div class="layer-content">
+                <h4>Modular Monolith Core (:8080)</h4>
+                <p>Java 21 &amp; Spring Boot 3.5 executing 88 business use cases across 9 isolated domains, secured by
+                  RS256 JWT key ring rotation, Spring Data JPA, and Flyway versioned migrations.</p>
+              </div>
+            </div>
+
+            <div class="arch-layer-item">
+              <div class="layer-number">03</div>
+              <div class="layer-content">
+                <h4>AI Nurse &amp; Triage Service (:8001)</h4>
+                <p>Python FastAPI microservice executing LangChain RAG workflows over Google Gemini 1.5/2.0 and pgvector
+                  similarity search, delivering clinical recommendations with medical disclaimers.</p>
+              </div>
+            </div>
+
+            <div class="arch-layer-item">
+              <div class="layer-number">04</div>
+              <div class="layer-content">
+                <h4>Exercise ML Sidecar (:8002)</h4>
+                <p>Python MediaPipe service performing real-time maternal posture landmark extraction, skeletal angle
+                  validation, and pregnancy exercise safety verification.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK EXPERIENCE & EDUCATION SECTION -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Background</span>
+          <h2 class="section-title">Experience &amp; Education</h2>
+          <p class="section-desc">Hands-on industrial internship combined with rigorous academic training at FPT
+            University.</p>
+        </div>
+
+        <div class="timeline-container">
+          <!-- Item 1: Internship -->
+          <div class="timeline-item glow-card">
+            <div class="timeline-marker"></div>
+            <div class="timeline-header">
+              <div>
+                <span class="timeline-badge work">Work Experience</span>
+                <h3 class="timeline-title">FPT Software Academy</h3>
+                <h4 class="timeline-role">Java Backend / Software Engineering Intern</h4>
+              </div>
+              <div class="timeline-period">05/2025 – 08/2025</div>
+            </div>
+            <div class="timeline-body">
+              <p>
+                Underwent intensive enterprise software engineering training focused on Java Spring Boot ecosystem,
+                relational database modeling, and team-based agile workflows.
+              </p>
+              <ul class="bullet-list">
+                <li>Developed modular backend RESTful APIs using <strong>Spring Boot</strong>,
+                  <strong>JPA/Hibernate</strong>, and SQL databases.</li>
+                <li>Practiced enterprise design patterns, transaction management, and robust exception-handling
+                  strategies.</li>
+                <li>Applied automated CI/CD practices and Git Flow collaboration standards for sprint-based team
+                  deliveries.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Item 2: Education -->
+          <div class="timeline-item glow-card">
+            <div class="timeline-marker"></div>
+            <div class="timeline-header">
+              <div>
+                <span class="timeline-badge edu">Academic Degree</span>
+                <h3 class="timeline-title">FPT University, Hanoi</h3>
+                <h4 class="timeline-role">Bachelor of Science in Software Engineering</h4>
+              </div>
+              <div class="timeline-period">2022 – 2026</div>
+            </div>
+            <div class="timeline-body">
+              <p>
+                Core coursework: Object-Oriented Analysis &amp; Design (OOAD), Data Structures &amp; Algorithms,
+                Database Systems, Computer Networks, Operating Systems, Software Architecture, Enterprise Application
+                Development.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACADEMIC SUPERVISOR REFERENCE CARD -->
+        <div class="reference-card glow-card">
+          <div class="ref-header">
+            <div class="ref-icon">🎓</div>
+            <div>
+              <span class="ref-label">Academic &amp; Capstone Supervisor Reference</span>
+              <h3 class="ref-name">Assoc. Prof. Dr. Nguyen Cuong Manh (PGS. TS. Nguyễn Cường Mạnh)</h3>
+              <p class="ref-title">Lecturer &amp; Graduation Project Supervisor — FPT University, Hanoi</p>
+            </div>
+          </div>
+          <div class="ref-contacts">
+            <div class="ref-contact-item">
+              <span class="label">Email:</span>
+              <a href="mailto:ManhNC5@fe.edu.vn" class="link">ManhNC5@fe.edu.vn</a>
+            </div>
+            <div class="ref-contact-item">
+              <span class="label">Phone:</span>
+              <span class="phone-val">0966 896 568</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & FOOTER SECTION -->
+    <section class="section bg-alt" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Let's Connect</span>
+          <h2 class="section-title">Ready to Add Value to Your Engineering Team</h2>
+          <p class="section-desc">Open to Software Engineer opportunities across Backend, AI Solutions, Mobile, and
+            Full-Stack teams.</p>
+        </div>
+
+        <div class="contact-box glow-card">
+          <div class="contact-methods">
+            <div class="contact-method-card" onclick="copyContact('email')">
+              <div class="contact-icon">✉️</div>
+              <div class="contact-info">
+                <span class="contact-label">Email Address</span>
+                <span class="contact-val">huy412004@gmail.com</span>
+              </div>
+              <button class="btn btn-ghost btn-sm" id="btnCopyEmail">Copy</button>
+            </div>
+
+            <div class="contact-method-card" onclick="copyContact('phone')">
+              <div class="contact-icon">📞</div>
+              <div class="contact-info">
+                <span class="contact-label">Phone Number</span>
+                <span class="contact-val">0866 046 581</span>
+              </div>
+              <button class="btn btn-ghost btn-sm" id="btnCopyPhone">Copy</button>
+            </div>
+
+            <a href="https://github.com/huynd4104" target="_blank" rel="noopener noreferrer"
+              class="contact-method-card link-card">
+              <div class="contact-icon">💻</div>
+              <div class="contact-info">
+                <span class="contact-label">GitHub Repository</span>
+                <span class="contact-val">github.com/huynd4104</span>
+              </div>
+              <span class="btn btn-ghost btn-sm">Visit &rarr;</span>
+            </a>
+
+            <div class="contact-method-card">
+              <div class="contact-icon">📍</div>
+              <div class="contact-info">
+                <span class="contact-label">Location</span>
+                <span class="contact-val">Thach That, Hanoi, Vietnam</span>
+              </div>
+              <span class="badge-status">On-site / Hybrid</span>
+            </div>
+          </div>
+
+          <div class="direct-email-cta">
+            <h3>Start a Conversation</h3>
+            <p>Whether you have an engineering role opening, a backend system to build, or an AI &amp; mobile challenge,
+              I'd love to connect.</p>
+            <a href="mailto:huy412004@gmail.com?subject=Software%20Engineer%20Opportunity%20-%20Nguyen%20Danh%20Huy"
+              class="btn btn-primary btn-lg">
+              <span>Send Me an Email</span>
+              <svg viewBox="0 0 20 20" width="18" height="18" fill="currentColor">
+                <path
+                  d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <span class="logo-symbol">&lt;/&gt;</span>
+        <span>Designed &amp; Engineered by <strong>Nguyen Danh Huy</strong> • 2026</span>
+      </div>
+      <div class="footer-right">
+        <a href="#hero">Back to Top &uarr;</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- DEEP DIVE MODAL (<dialog>) -->
+  <dialog class="deep-dive-dialog" id="projectModal">
+    <div class="dialog-card">
+      <div class="dialog-header">
+        <div class="dialog-title-group">
+          <span class="dialog-badge" id="modalBadge">CAPSTONE PROJECT</span>
+          <h2 class="dialog-title" id="modalTitle">CareBridge Architecture Deep Dive</h2>
+        </div>
+        <button class="dialog-close-btn" id="modalCloseBtn" aria-label="Close dialog">&times;</button>
+      </div>
+
+      <div class="dialog-body" id="modalBody">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+
+</html>
