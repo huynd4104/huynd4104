@@ -1124,15 +1124,17 @@ img {
   font-family: var(--font-mono);
 }
 
-/* Gallery Grid */
+/* Gallery Bento Grid with Alternating Orientations */
 .gallery-cards-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 14px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-flow: dense;
+  gap: 16px;
+  align-items: stretch;
 }
 
 .gallery-card {
-  background: rgba(11, 16, 29, 0.9);
+  background: rgba(11, 16, 29, 0.92);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -1145,34 +1147,69 @@ img {
 }
 
 .gallery-card:hover, .gallery-card:focus-visible {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   border-color: var(--accent-cyan);
-  box-shadow: 0 12px 28px -6px rgba(6, 182, 212, 0.3);
+  box-shadow: 0 14px 30px -8px rgba(6, 182, 212, 0.35);
 }
 
-.gallery-card-thumb {
+/* Portrait Mobile Cards (1 Column) */
+.gallery-card.portrait-card {
+  grid-column: span 1;
+}
+
+.gallery-card.portrait-card .gallery-card-thumb {
   position: relative;
   width: 100%;
-  aspect-ratio: 9/16;
-  background: #000;
+  aspect-ratio: 9 / 16;
+  background: #030712;
   overflow: hidden;
 }
 
-.gallery-card-thumb img {
+.gallery-card.portrait-card .gallery-card-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
   transition: transform var(--transition-slow);
 }
 
+/* Landscape Desktop Web & Blueprint Cards (2 Columns) */
+.gallery-card.landscape-card {
+  grid-column: span 2;
+}
+
+.gallery-card.landscape-card .gallery-card-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #030712;
+  overflow: hidden;
+}
+
+.gallery-card.landscape-card .gallery-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform var(--transition-slow);
+}
+
+.gallery-card.landscape-card.wide-blueprint .gallery-card-thumb {
+  aspect-ratio: 16 / 9;
+}
+
+.gallery-card.landscape-card.wide-blueprint .gallery-card-thumb img {
+  object-position: center center;
+}
+
 .gallery-card:hover .gallery-card-thumb img {
-  transform: scale(1.07);
+  transform: scale(1.04);
 }
 
 .gallery-card-badge {
   position: absolute;
-  top: 6px;
-  right: 6px;
+  top: 8px;
+  right: 8px;
   background: rgba(3, 7, 18, 0.88);
   backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -1184,6 +1221,31 @@ img {
   font-family: var(--font-mono);
   z-index: 2;
   white-space: nowrap;
+}
+
+/* Device Pill (Bottom Left of Thumbnail) */
+.gallery-card-device {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(3, 7, 18, 0.86);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-pill);
+  padding: 3px 9px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  font-family: var(--font-mono);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  letter-spacing: 0.02em;
+}
+
+.gallery-card-device .device-icon {
+  font-size: 0.76rem;
 }
 
 .gallery-zoom-overlay {
@@ -1231,11 +1293,11 @@ img {
 }
 
 .gallery-card-meta {
-  padding: 10px 10px 12px;
+  padding: 11px 12px 13px;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(15, 23, 42, 0.92);
   flex: 1;
 }
 
@@ -1245,11 +1307,11 @@ img {
   color: var(--accent-violet);
   font-family: var(--font-mono);
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
 }
 
 .gallery-card-title {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: #fff;
   line-height: 1.35;
@@ -2167,7 +2229,16 @@ img {
   }
 
   .gallery-cards-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .gallery-card.landscape-card {
+    grid-column: span 2;
+  }
+
+  .gallery-card.portrait-card {
+    grid-column: span 1;
   }
 }
 
@@ -2194,8 +2265,16 @@ img {
   }
 
   .gallery-cards-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .gallery-card.landscape-card {
+    grid-column: span 2;
+  }
+
+  .gallery-card.portrait-card {
+    grid-column: span 1;
   }
 
   .gallery-header-row {
@@ -2259,14 +2338,27 @@ img {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 540px) {
   .metrics-grid {
     grid-template-columns: 1fr;
   }
 
   .gallery-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .gallery-card.landscape-card,
+  .gallery-card.portrait-card {
+    grid-column: span 1;
+  }
+
+  .gallery-card.portrait-card .gallery-card-thumb {
+    aspect-ratio: 9 / 15;
+  }
+
+  .gallery-card.landscape-card .gallery-card-thumb {
+    aspect-ratio: 16 / 10;
   }
 
   .btn-expand-gallery {

@@ -417,178 +417,221 @@ window.copyContact = copyContact;
    ========================================================================== */
 
 const carebridgeScreens = [
-  // 1. Mother Role & Journey
+  // 1. Mother Daily Care (Portrait) - 1 col
   {
     id: 'cb-mother-home',
     title: 'Mother Daily Care Dashboard',
     role: 'Mother & Pregnancy',
     category: 'mother',
+    orientation: 'portrait',
+    deviceType: '📱 Mobile Screen',
     badge: 'Mobile App • Mother Role',
     src: 'assets/carebridge-mother-home.png',
     desc: 'Personalized maternal health dashboard featuring daily gestational tracking, MOH milestones, medication reminders, and instant access to AI nurse assistance.'
   },
+  // 2. AI Clinical Symptom Intake (Portrait) - 1 col
   {
     id: 'cb-ai-symptom',
     title: 'AI Clinical Symptom Intake (RAG)',
     role: 'Mother & Pregnancy',
     category: 'mother',
+    orientation: 'portrait',
+    deviceType: '📱 Mobile Screen',
     badge: 'AI & RAG Engine',
     src: 'assets/carebridge-ai-symptom.png',
     desc: 'Conversational clinical triage powered by Google Gemini API & pgvector hybrid search, evaluating maternal symptoms against WHO/MOH guidelines.'
   },
+  // 3. Web Clinical Expert Portal (Landscape) - 2 cols (Completes Row 1: 1 + 1 + 2 = 4)
   {
-    id: 'cb-today-tasks',
-    title: 'Daily Care Tasks & Vital Schedule',
-    role: 'Mother & Pregnancy',
-    category: 'mother',
-    badge: 'Mobile App • Routine Care',
-    src: 'assets/carebridge-today-tasks.png',
-    desc: 'Automated daily clinical care checklist including blood pressure logging, fetal movement count, hydration goals, and doctor appointments.'
+    id: 'cb-web-expert-portal',
+    title: 'Web Clinical Expert Portal & EMR Records',
+    role: 'Doctor & Expert',
+    category: 'expert',
+    orientation: 'landscape',
+    deviceType: '💻 Desktop Web Portal',
+    badge: 'React 19 Web • Doctor EMR',
+    src: 'assets/carebridge-web-expert-portal.png',
+    desc: 'Desktop web portal for clinical experts to examine comprehensive electronic medical records (EMR), prescribe guidance, and manage scheduled shifts.'
   },
+  // 4. AI Content Moderation Queue (Landscape) - 2 cols (Starts Row 2: 2 + 1 + 1 = 4)
   {
-    id: 'cb-safety-monitoring',
-    title: 'IMU Sensor Safety & Fall Detection',
-    role: 'Mother & Pregnancy',
-    category: 'mother',
-    badge: 'IoT & Accelerometer',
-    src: 'assets/carebridge-safety-monitoring.png',
-    desc: 'Real-time maternal fall detection leveraging mobile accelerometer and gyroscope data with 30-second emergency dispatch countdown timer.'
+    id: 'cb-web-moderation-queue',
+    title: 'AI Moderation Queue & Content Safety Console',
+    role: 'Community & Admin',
+    category: 'community-admin',
+    orientation: 'landscape',
+    deviceType: '💻 Desktop Web Portal',
+    badge: 'React Web • Safety Queue',
+    src: 'assets/carebridge-web-moderation-queue.png',
+    desc: 'Administrative moderation workspace with automated AI toxicity scoring, unapproved medical claims flagging, and one-click quarantine actions.'
   },
-
-  // 2. Family Cooperative Care Circle
+  // 5. Family Care Group Sync (Portrait) - 1 col
   {
     id: 'cb-family-caregroup',
     title: 'Family Care Group & Multi-Caregiver Sync',
     role: 'Family Circle',
     category: 'family',
+    orientation: 'portrait',
+    deviceType: '📱 Mobile Screen',
     badge: 'Mobile App • Family Role',
     src: 'assets/carebridge-family-caregroup.png',
     desc: 'Collaborative care network allowing husband, grandparents, and caregivers to monitor pregnancy progression, share duties, and receive status updates.'
   },
-  {
-    id: 'cb-family-tasks',
-    title: 'Family Cooperative Care Tasks',
-    role: 'Family Circle',
-    category: 'family',
-    badge: 'Mobile App • Shared Duties',
-    src: 'assets/carebridge-family-tasks.png',
-    desc: 'Delegated household and caregiving checklist for family members, ensuring timely medicine purchase, nutrition prep, and clinic check-ins.'
-  },
+  // 6. Real-time Family Emergency SOS (Portrait) - 1 col (Completes Row 2)
   {
     id: 'cb-family-alerts',
     title: 'Real-Time Family Emergency SOS Alerts',
     role: 'Family Circle',
     category: 'family',
+    orientation: 'portrait',
+    deviceType: '📱 Mobile Screen',
     badge: 'Real-time Alerts & Push',
     src: 'assets/carebridge-family-alerts.png',
     desc: 'Instant broadcast alerts dispatched to all registered family members when anomalous vitals, fall detection, or manual SOS triggers occur.'
   },
-
-  // 3. Healthcare Expert & Doctor Experience
+  // 7. Expert Mobile Home (Portrait) - 1 col
   {
     id: 'cb-expert-home',
-    title: 'Healthcare Expert Dashboard',
+    title: 'Healthcare Expert Clinical Dashboard',
     role: 'Doctor & Expert',
     category: 'expert',
+    orientation: 'portrait',
+    deviceType: '📱 Mobile Screen',
     badge: 'Mobile App • Doctor Role',
     src: 'assets/carebridge-expert-home.png',
     desc: 'Mobile clinical command center for pediatricians and OB/GYN specialists showing active patients, upcoming consults, and pending triage reviews.'
   },
+  // 8. Enterprise System Admin Dashboard (Landscape) - 2 cols (Row 3 center)
+  {
+    id: 'cb-web-admin-dashboard',
+    title: 'Enterprise Operations & Admin Dashboard',
+    role: 'Community & Admin',
+    category: 'community-admin',
+    orientation: 'landscape',
+    deviceType: '💻 Desktop Web Portal',
+    badge: 'React Web • Admin Operations',
+    src: 'assets/carebridge-web-admin-dashboard.png',
+    desc: 'Central operations console monitoring 88 use case endpoints, doctor licensing verification, platform traffic analytics, and database health.'
+  },
+  // 9. Doctor Consultation Queue (Portrait) - 1 col (Completes Row 3: 1 + 2 + 1 = 4)
   {
     id: 'cb-expert-consultation-requests',
     title: 'Consultation Queue & Triage Intake',
     role: 'Doctor & Expert',
     category: 'expert',
+    orientation: 'portrait',
+    deviceType: '📱 Mobile Screen',
     badge: 'Mobile App • Patient Triage',
     src: 'assets/carebridge-expert-consultation-requests.png',
     desc: 'Incoming patient consultation request management with prioritized AI urgency scores, clinical notes review, and instant appointment confirmation.'
   },
+  // 10. WebRTC Teleconsultation Video (Portrait) - 1 col
   {
     id: 'cb-teleconsultation',
     title: 'High-Definition Teleconsultation (WebRTC)',
     role: 'Doctor & Expert',
     category: 'expert',
+    orientation: 'portrait',
+    deviceType: '📱 Mobile Screen',
     badge: 'ZegoCloud WebRTC Video',
     src: 'assets/carebridge-teleconsultation.png',
     desc: 'Secure end-to-end 1-on-1 video call between certified doctor and mother with screen sharing, automated session recording, and real-time messaging.'
   },
-  {
-    id: 'cb-web-expert-portal',
-    title: 'Web Clinical Expert Portal',
-    role: 'Doctor & Expert',
-    category: 'expert',
-    badge: 'React 19 Web App',
-    src: 'assets/carebridge-web-expert-portal.png',
-    desc: 'Desktop web portal for clinical experts to examine comprehensive electronic medical records (EMR), prescribe guidance, and manage scheduled shifts.'
-  },
-
-  // 4. Baby & Child Health Hub
+  // 11. Baby Profiles Hub (Portrait) - 1 col
   {
     id: 'cb-baby-profiles',
     title: 'Child & Infant Digital Health Records',
     role: 'Baby & Child Hub',
     category: 'baby',
+    orientation: 'portrait',
+    deviceType: '📱 Mobile Screen',
     badge: 'Mobile App • Pediatric Hub',
     src: 'assets/carebridge-baby-profiles.png',
     desc: 'Multi-child digital profile tracking immunization history, developmental milestones, pediatric checkups, and allergy registries.'
   },
+  // 12. WHO Baby Growth Milestone Curve (Portrait) - 1 col
   {
     id: 'cb-baby-growth-chart',
     title: 'WHO Pediatric Growth & Milestone Curves',
     role: 'Baby & Child Hub',
     category: 'baby',
+    orientation: 'portrait',
+    deviceType: '📱 Mobile Screen',
     badge: 'Analytics & Standards',
     src: 'assets/carebridge-baby-growth-chart.png',
     desc: 'Dynamic WHO growth chart plotting weight-for-age, height-for-age, and BMI percentiles with automated pediatric percentile anomaly alerts.'
   },
-
-  // 5. Community & Admin Safety
+  // 13. IMU Accelerometer Safety Monitoring (Portrait) - 1 col (Completes Row 4: 1 + 1 + 1 + 1 = 4)
   {
-    id: 'cb-community-moderation',
-    title: 'Maternal Community & Doctor Q&A Forum',
-    role: 'Community & Admin',
-    category: 'community-admin',
-    badge: 'Mobile Community',
-    src: 'assets/carebridge-community-moderation.png',
-    desc: 'Peer support community with verified doctor badges, stage-based topic channels, and automated semantic sentiment & content guardrails.'
+    id: 'cb-safety-monitoring',
+    title: 'IMU Sensor Safety & Fall Detection',
+    role: 'Mother & Pregnancy',
+    category: 'mother',
+    orientation: 'portrait',
+    deviceType: '📱 Mobile Screen',
+    badge: 'IoT & Accelerometer',
+    src: 'assets/carebridge-safety-monitoring.png',
+    desc: 'Real-time maternal fall detection leveraging mobile accelerometer and gyroscope data with 30-second emergency dispatch countdown timer.'
   },
-  {
-    id: 'cb-web-moderation-queue',
-    title: 'AI Moderation Queue & Content Safety',
-    role: 'Community & Admin',
-    category: 'community-admin',
-    badge: 'React Web • Content Safety',
-    src: 'assets/carebridge-web-moderation-queue.png',
-    desc: 'Administrative moderation workspace with automated AI toxicity scoring, unapproved medical claims flagging, and one-click quarantine actions.'
-  },
-  {
-    id: 'cb-web-admin-dashboard',
-    title: 'Enterprise System Admin Dashboard',
-    role: 'Community & Admin',
-    category: 'community-admin',
-    badge: 'React Web • Operations Center',
-    src: 'assets/carebridge-web-admin-dashboard.png',
-    desc: 'Central operations console monitoring 88 use case endpoints, doctor licensing verification, platform traffic analytics, and database health.'
-  },
-
-  // 6. Emergency GIS & Architecture
-  {
-    id: 'cb-hospital-map',
-    title: 'Emergency GIS Hospital Locator & Routing',
-    role: 'Emergency & Maps',
-    category: 'emergency',
-    badge: 'TrackAsia GIS & GPS',
-    src: 'assets/carebridge-hospital-map.png',
-    desc: 'Proximity-based interactive map finding accredited maternal & pediatric hospitals within seconds, with turn-by-turn routing and direct hotline dial.'
-  },
+  // 14. Architecture Blueprint (Landscape) - 2 cols (Starts Row 5: 2 + 1 + 1 = 4)
   {
     id: 'cb-architecture',
     title: 'Modular Monolith Architecture Blueprint',
     role: 'System Architecture',
     category: 'emergency',
+    orientation: 'landscape',
+    deviceType: '📐 System Blueprint',
     badge: 'Spring Boot 3.5 & Docker',
     src: 'assets/carebridge-architecture.png',
     desc: 'Comprehensive system architecture diagram illustrating 9 domain modules, RS256 key rotation ring, RAG pipeline, WebRTC media, and PostgreSQL schema.'
+  },
+  // 15. Hospital Locator GIS (Portrait) - 1 col
+  {
+    id: 'cb-hospital-map',
+    title: 'Emergency GIS Hospital Locator & Routing',
+    role: 'Emergency & Maps',
+    category: 'emergency',
+    orientation: 'portrait',
+    deviceType: '📱 Mobile Screen',
+    badge: 'TrackAsia GIS & GPS',
+    src: 'assets/carebridge-hospital-map.png',
+    desc: 'Proximity-based interactive map finding accredited maternal & pediatric hospitals within seconds, with turn-by-turn routing and direct hotline dial.'
+  },
+  // 16. Maternal Community Forum (Portrait) - 1 col (Completes Row 5)
+  {
+    id: 'cb-community-moderation',
+    title: 'Maternal Community & Doctor Q&A Forum',
+    role: 'Community & Admin',
+    category: 'community-admin',
+    orientation: 'portrait',
+    deviceType: '📱 Mobile Screen',
+    badge: 'Mobile Community',
+    src: 'assets/carebridge-community-moderation.png',
+    desc: 'Peer support community with verified doctor badges, stage-based topic channels, and automated semantic sentiment & content guardrails.'
+  },
+  // 17. Today Tasks (Portrait) - 1 col
+  {
+    id: 'cb-today-tasks',
+    title: 'Daily Care Tasks & Vital Schedule',
+    role: 'Mother & Pregnancy',
+    category: 'mother',
+    orientation: 'portrait',
+    deviceType: '📱 Mobile Screen',
+    badge: 'Mobile App • Routine Care',
+    src: 'assets/carebridge-today-tasks.png',
+    desc: 'Automated daily clinical care checklist including blood pressure logging, fetal movement count, hydration goals, and doctor appointments.'
+  },
+  // 18. Family Tasks (Portrait) - 1 col
+  {
+    id: 'cb-family-tasks',
+    title: 'Family Cooperative Care Tasks',
+    role: 'Family Circle',
+    category: 'family',
+    orientation: 'portrait',
+    deviceType: '📱 Mobile Screen',
+    badge: 'Mobile App • Shared Duties',
+    src: 'assets/carebridge-family-tasks.png',
+    desc: 'Delegated household and caregiving checklist for family members, ensuring timely medicine purchase, nutrition prep, and clinic check-ins.'
   }
 ];
 
@@ -658,14 +701,22 @@ function renderCarebridgeGallery() {
   const shouldLimit = (activeGalleryRole === 'all') && !isGalleryExpanded;
   const visibleItems = shouldLimit ? filtered.slice(0, INITIAL_VISIBLE_COUNT) : filtered;
 
-  // Render cards
+  // Render cards with alternating orientation & device tags
   gridContainer.innerHTML = visibleItems.map((screen) => {
     const globalIndex = carebridgeScreens.findIndex(s => s.id === screen.id);
+    const isLandscape = screen.orientation === 'landscape';
+    const orientationClass = isLandscape ? 'landscape-card' : 'portrait-card';
+    const blueprintClass = screen.id === 'cb-architecture' ? 'wide-blueprint' : '';
+
     return `
-      <div class="gallery-card" onclick="openImageLightbox(${globalIndex})" role="button" tabindex="0" aria-label="View screenshot: ${escapeHtml(screen.title)}">
+      <div class="gallery-card ${orientationClass} ${blueprintClass}" onclick="openImageLightbox(${globalIndex})" role="button" tabindex="0" aria-label="View screenshot: ${escapeHtml(screen.title)}">
         <div class="gallery-card-thumb">
           <img src="${screen.src}" alt="${escapeHtml(screen.title)}" loading="lazy">
           <div class="gallery-card-badge">${escapeHtml(screen.badge)}</div>
+          <div class="gallery-card-device">
+            <span class="device-icon">${escapeHtml(screen.deviceType.split(' ')[0])}</span>
+            <span>${escapeHtml(screen.deviceType.split(' ').slice(1).join(' '))}</span>
+          </div>
           <div class="gallery-zoom-overlay">
             <div class="zoom-icon-circle">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -803,6 +854,17 @@ function updateLightboxContent() {
   const imgEl = document.getElementById('lightboxMainImage');
   const descEl = document.getElementById('lightboxDesc');
   const rawLinkEl = document.getElementById('lightboxRawLink');
+
+  const dialog = document.getElementById('imageLightboxModal');
+  if (dialog) {
+    if (screen.orientation === 'landscape') {
+      dialog.classList.add('is-landscape');
+      dialog.classList.remove('is-portrait');
+    } else {
+      dialog.classList.add('is-portrait');
+      dialog.classList.remove('is-landscape');
+    }
+  }
 
   if (badgeEl) badgeEl.textContent = `${screen.role.toUpperCase()} • ${screen.badge}`;
   if (titleEl) titleEl.textContent = screen.title;
