@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="https://huynd4104.github.io/portfolio/"><img src="https://img.shields.io/badge/Live_Portfolio-Website-06B6D4?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Portfolio Website" /></a>
+  <a href="https://huynd4104.github.io/huynd4104/"><img src="https://img.shields.io/badge/Live_Portfolio-Website-06B6D4?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Portfolio Website" /></a>
   <a href="https://github.com/huynd4104"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
   <a href="mailto:huy412004@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
   <a href="tel:0866046581"><img src="https://img.shields.io/badge/Phone-0866046581-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Phone" /></a>
